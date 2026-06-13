@@ -109,6 +109,25 @@ a {
     linear-gradient(0deg, rgba(237, 247, 255, 0.62), transparent 44%);
 }
 
+.brand-stream-bg::before {
+  content: "";
+  position: absolute;
+  inset: -26%;
+  opacity: 0;
+  background:
+    linear-gradient(68deg, transparent 0 31%, rgba(220, 74, 137, 0.26) 42%, transparent 55%),
+    linear-gradient(116deg, transparent 0 38%, rgba(255, 161, 95, 0.24) 48%, transparent 61%),
+    linear-gradient(154deg, transparent 0 42%, rgba(1, 165, 171, 0.18) 54%, transparent 68%);
+  filter: blur(12px);
+  transform: translateX(-6%) rotate(-4deg);
+}
+
+.customer-app.fx-all .brand-stream-bg::before,
+.customer-app.fx-spotlight .brand-stream-bg::before {
+  opacity: 1;
+  animation: spotlightSweep 8s ease-in-out infinite alternate;
+}
+
 .stream-row {
   position: absolute;
   left: -80vw;
@@ -416,6 +435,25 @@ a {
   isolation: isolate;
 }
 
+.pack-arena::before {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  width: min(78vw, 520px);
+  aspect-ratio: 1;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.42) 0 18%, transparent 19%),
+    radial-gradient(circle, transparent 0 55%, rgba(220, 74, 137, 0.26) 56% 58%, transparent 60%);
+  box-shadow:
+    0 0 0 18px rgba(220, 74, 137, 0.08),
+    0 0 62px rgba(255, 161, 95, 0.32);
+  transform: scale(0.36);
+}
+
 .pack-arena::after {
   content: "";
   position: absolute;
@@ -426,6 +464,11 @@ a {
   border-radius: 999px;
   background: rgba(220, 74, 137, 0.18);
   filter: blur(18px);
+}
+
+.customer-app.fx-all .pack-arena.is-opening::before,
+.customer-app.fx-burst .pack-arena.is-opening::before {
+  animation: burstRing 1.1s ease-out both;
 }
 
 .coupon-pack {
@@ -452,6 +495,27 @@ a {
   transition: transform 220ms ease, opacity 240ms ease, filter 240ms ease;
 }
 
+.customer-app.fx-all .coupon-pack,
+.customer-app.fx-glow .coupon-pack {
+  animation: packBreath 2.8s ease-in-out infinite;
+}
+
+.customer-app.fx-all .coupon-pack::after,
+.customer-app.fx-glow .coupon-pack::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 28% 18%, rgba(255, 255, 255, 0.55), transparent 18%),
+    radial-gradient(circle at 82% 70%, rgba(255, 161, 95, 0.26), transparent 24%),
+    radial-gradient(circle at 18% 76%, rgba(1, 165, 171, 0.22), transparent 22%);
+  opacity: 0.64;
+  animation: innerGlowShift 4.6s ease-in-out infinite alternate;
+}
+
 .coupon-pack:hover {
   transform: translateY(-4px) rotate(1deg);
 }
@@ -462,6 +526,92 @@ a {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.36), transparent);
   transform: rotate(8deg);
   animation: holoMove 4s linear infinite;
+}
+
+.pack-orbit,
+.pack-sparkle-field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.pack-orbit {
+  inset: 7%;
+  border: 2px solid rgba(255, 255, 255, 0.64);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 12px rgba(220, 74, 137, 0.26));
+}
+
+.pack-orbit::before,
+.pack-orbit::after {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 0 0 18px rgba(220, 74, 137, 0.76);
+}
+
+.pack-orbit::before {
+  top: -7px;
+  left: 50%;
+}
+
+.pack-orbit::after {
+  right: -7px;
+  bottom: 26%;
+  background: var(--teal);
+}
+
+.pack-sparkle-field {
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.95) 0 2px, transparent 3px),
+    radial-gradient(circle at 76% 18%, rgba(255, 240, 106, 0.9) 0 2px, transparent 3px),
+    radial-gradient(circle at 84% 52%, rgba(255, 255, 255, 0.82) 0 2px, transparent 3px),
+    radial-gradient(circle at 28% 72%, rgba(1, 165, 171, 0.74) 0 2px, transparent 3px),
+    radial-gradient(circle at 62% 82%, rgba(220, 74, 137, 0.74) 0 2px, transparent 3px);
+}
+
+.pack-sparkle-field::before,
+.pack-sparkle-field::after {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.9) 0 2px, transparent 3px),
+    radial-gradient(circle at 42% 58%, rgba(255, 240, 106, 0.86) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 32%, rgba(255, 255, 255, 0.82) 0 2px, transparent 3px),
+    radial-gradient(circle at 80% 78%, rgba(220, 74, 137, 0.7) 0 2px, transparent 3px);
+}
+
+.pack-sparkle-field::after {
+  transform: rotate(22deg);
+  opacity: 0.72;
+}
+
+.customer-app.fx-all .pack-orbit,
+.customer-app.fx-glow .pack-orbit {
+  opacity: 0.72;
+  animation: orbitSpin 8s linear infinite;
+}
+
+.customer-app.fx-all .pack-sparkle-field,
+.customer-app.fx-sparkle .pack-sparkle-field {
+  opacity: 1;
+  animation: sparklePulse 2.2s ease-in-out infinite;
+}
+
+.customer-app.fx-all .pack-sparkle-field::before,
+.customer-app.fx-sparkle .pack-sparkle-field::before {
+  animation: sparkleDrift 5s linear infinite;
+}
+
+.customer-app.fx-all .pack-sparkle-field::after,
+.customer-app.fx-sparkle .pack-sparkle-field::after {
+  animation: sparkleDrift 6.5s linear infinite reverse;
 }
 
 .pack-edge {
@@ -500,6 +650,11 @@ a {
   color: var(--surface);
   font-size: 0.72rem;
   font-weight: 900;
+}
+
+.customer-app.fx-all .pack-seal,
+.customer-app.fx-seal .pack-seal {
+  animation: sealGlow 1.9s ease-in-out infinite;
 }
 
 .pack-logo {
@@ -663,10 +818,30 @@ a {
 }
 
 .primary-button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   border: 0;
   background: linear-gradient(243deg, var(--orange) 0%, var(--pink) 52%);
   color: var(--surface);
   box-shadow: 0 16px 34px rgba(220, 74, 137, 0.22);
+}
+
+.primary-button::after {
+  content: "";
+  position: absolute;
+  inset: -40% -70%;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 36%, rgba(255, 255, 255, 0.56) 48%, transparent 60%);
+  transform: translateX(-42%) rotate(10deg);
+  opacity: 0;
+}
+
+.customer-app.fx-all .primary-button::after,
+.customer-app.fx-button .primary-button::after {
+  opacity: 1;
+  animation: buttonShine 2.4s ease-in-out infinite;
 }
 
 .ghost-button,
@@ -723,6 +898,15 @@ a {
   border-radius: 3px;
   background: var(--yellow);
   animation: spark 860ms ease-out var(--delay) forwards;
+}
+
+.customer-app.fx-all .spark-piece,
+.customer-app.fx-burst .spark-piece {
+  width: 12px;
+  height: 12px;
+  clip-path: polygon(50% 0, 61% 34%, 98% 35%, 68% 56%, 80% 92%, 50% 70%, 20% 92%, 32% 56%, 2% 35%, 39% 34%);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.72));
+  animation-duration: 1.08s;
 }
 
 .spark-piece:nth-child(3n) {
@@ -1669,6 +1853,110 @@ a {
   }
 }
 
+@keyframes spotlightSweep {
+  from {
+    transform: translateX(-10%) rotate(-6deg);
+  }
+  to {
+    transform: translateX(8%) rotate(5deg);
+  }
+}
+
+@keyframes packBreath {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 0 0 1px rgba(42, 42, 42, 0.12),
+      inset 0 0 0 9px rgba(255, 255, 255, 0.2),
+      0 18px 44px rgba(220, 74, 137, 0.18),
+      0 0 0 rgba(220, 74, 137, 0);
+    transform: translateY(0) rotate(-2deg) scale(1);
+  }
+  48% {
+    box-shadow:
+      inset 0 0 0 1px rgba(42, 42, 42, 0.12),
+      inset 0 0 0 9px rgba(255, 255, 255, 0.28),
+      0 28px 58px rgba(220, 74, 137, 0.28),
+      0 0 48px rgba(255, 161, 95, 0.34);
+    transform: translateY(-5px) rotate(-1deg) scale(1.015);
+  }
+}
+
+@keyframes innerGlowShift {
+  from {
+    opacity: 0.48;
+    transform: translate3d(-2%, -1%, 0) scale(1);
+  }
+  to {
+    opacity: 0.82;
+    transform: translate3d(2%, 1%, 0) scale(1.02);
+  }
+}
+
+@keyframes orbitSpin {
+  from {
+    transform: rotate(0deg) scale(0.98);
+  }
+  to {
+    transform: rotate(360deg) scale(0.98);
+  }
+}
+
+@keyframes sparklePulse {
+  0%,
+  100% {
+    opacity: 0.58;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes sparkleDrift {
+  from {
+    transform: translateY(8%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-8%) rotate(18deg);
+  }
+}
+
+@keyframes sealGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(212, 33, 95, 0);
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(212, 33, 95, 0.46), 0 0 0 6px rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes buttonShine {
+  0% {
+    transform: translateX(-56%) rotate(10deg);
+  }
+  42%,
+  100% {
+    transform: translateX(58%) rotate(10deg);
+  }
+}
+
+@keyframes burstRing {
+  0% {
+    opacity: 0;
+    transform: scale(0.28);
+  }
+  24% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.42);
+  }
+}
+
 @keyframes packOpen {
   0% {
     transform: translateY(0) rotate(-2deg) scale(1);
@@ -1701,5 +1989,15 @@ a {
   to {
     opacity: 0;
     transform: translate(var(--tx), var(--ty)) rotate(260deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .customer-app *,
+  .customer-app *::before,
+  .customer-app *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
   }
 }

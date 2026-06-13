@@ -42,6 +42,19 @@ BODY PALETTEの展示会ブースで、来場者にQRコードや共有URLから
 GitHub: https://github.com/kagami-fit/bodypalette-gift-pack-20260613
 ```
 
+演出確認:
+
+```text
+全部入り: ?type=general&fx=all
+パック発光: ?type=general&fx=glow
+キラキラ粒子: ?type=general&fx=sparkle
+ボタンの光: ?type=general&fx=button
+封印の光: ?type=general&fx=seal
+開封リング: ?type=general&fx=burst
+背景スポットライト: ?type=general&fx=spotlight
+控えめ表示: ?type=general&fx=calm
+```
+
 注意: 現在の管理画面設定はブラウザのローカルストレージに保存されます。同じ端末・同じブラウザの抽選画面には反映されますが、別端末や他の来場者のブラウザへ自動反映される仕組みではありません。
 
 ローカル確認:
@@ -70,6 +83,7 @@ http://localhost:4174/?type=general&code=demo-vip
 - 来場者用抽選画面 — 稼働中
 - iPad向け抽選画面 — 稼働中。タイトルとパックを上下配置にし、開封後は「パックに戻る」で開封前画面へ戻せるよう調整済み
 - 参考サイト連動デザイン — 稼働中。`health-management-roulette-20260608` と同じロゴ、背景、白〜薄ピンクのトンマナに調整済み
+- 抽選演出 — 稼働中。通常は全部入り、URLの `fx` パラメータで個別演出を確認可能
 - スタッフ用管理画面 — 稼働中
 - 抽選設定管理 — 稼働中。設定はブラウザのローカルストレージに保存
 - `assets/` — 稼働中

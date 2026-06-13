@@ -31,6 +31,7 @@
   initialize();
 
   function initialize() {
+    applyEffectMode();
     const shouldShowTag = tagProfile.label && tagProfile.label !== "通常";
     elements.packStage.classList.toggle("has-tag", shouldShowTag);
     elements.tagPill.hidden = !shouldShowTag;
@@ -43,6 +44,15 @@
     if (window.lucide) {
       window.lucide.createIcons();
     }
+  }
+
+  function applyEffectMode() {
+    const params = new URLSearchParams(window.location.search);
+    const modes = ["all", "glow", "sparkle", "button", "seal", "burst", "spotlight", "calm"];
+    const mode = params.get("fx") || params.get("effect") || "all";
+    const effectMode = modes.includes(mode) ? mode : "all";
+    document.body.classList.add(`fx-${effectMode}`);
+    document.body.dataset.effectMode = effectMode;
   }
 
   function bindEvents() {
@@ -163,7 +173,9 @@
 
   function burstConfetti(rarity) {
     elements.confettiLayer.innerHTML = "";
-    const count = rarity === "super-rare" ? 46 : rarity === "rare" ? 36 : 26;
+    const richEffect = document.body.classList.contains("fx-all") || document.body.classList.contains("fx-burst");
+    const baseCount = rarity === "super-rare" ? 46 : rarity === "rare" ? 36 : 26;
+    const count = richEffect ? baseCount + 22 : baseCount;
 
     for (let i = 0; i < count; i += 1) {
       const piece = document.createElement("span");
@@ -176,7 +188,7 @@
 
     window.setTimeout(() => {
       elements.confettiLayer.innerHTML = "";
-    }, 1100);
+    }, richEffect ? 1450 : 1100);
   }
 
   function getRarityLabel(rarity) {
