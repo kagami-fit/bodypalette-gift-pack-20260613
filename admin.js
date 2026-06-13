@@ -299,12 +299,10 @@
         <article class="admin-coupon-card ${coupon.usedAt ? "is-used" : ""}" data-category="${coupon.category}">
           <div class="coupon-meta">
             <span>${core.escapeHtml(getCategoryLabel(coupon.category))} / ${core.escapeHtml(coupon.partner)}</span>
-            <span>${core.formatDate(coupon.expiresAt)}まで</span>
           </div>
           <h3>${core.escapeHtml(coupon.name)}</h3>
           <p>${core.escapeHtml(coupon.summary)}</p>
-          <span class="coupon-code">${core.escapeHtml(coupon.code)}</span>
-          <p>${core.escapeHtml(audience)}${core.escapeHtml(rule)} / 発行：${core.formatDate(coupon.issuedAt, { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" })}</p>
+          <p>${core.escapeHtml(audience)}${core.escapeHtml(rule)}</p>
           <div class="coupon-actions">
             <button class="coupon-action" type="button" data-action="${coupon.usedAt ? "revive" : "use"}" data-coupon-id="${coupon.instanceId}">
               <i data-lucide="${coupon.usedAt ? "rotate-ccw" : "check"}" aria-hidden="true"></i>

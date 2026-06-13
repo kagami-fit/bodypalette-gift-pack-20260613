@@ -626,8 +626,6 @@ a {
   font-weight: 800;
 }
 
-.reveal-body code,
-.detail-code,
 .tag-url {
   display: block;
   border-radius: var(--radius);
@@ -636,12 +634,6 @@ a {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-weight: 900;
   word-break: break-all;
-}
-
-.reveal-body code {
-  margin-top: 4px;
-  padding: 9px;
-  font-size: 0.82rem;
 }
 
 .pack-actions {
@@ -791,12 +783,6 @@ a {
 .coupon-detail h2,
 .coupon-detail p {
   margin: 0;
-}
-
-.detail-code {
-  padding: 12px;
-  background: #edf7ff;
-  font-size: 1rem;
 }
 
 .admin-app {
@@ -1245,19 +1231,6 @@ a {
   font-size: 0.88rem;
   font-weight: 700;
   line-height: 1.6;
-}
-
-.coupon-code {
-  display: block;
-  margin-top: 9px;
-  border-radius: var(--radius);
-  background: #edf7ff;
-  color: var(--blue-deep);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.82rem;
-  font-weight: 900;
-  padding: 9px;
-  word-break: break-all;
 }
 
 .coupon-actions {

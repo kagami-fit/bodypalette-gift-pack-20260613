@@ -22,7 +22,6 @@
     rarityBadge: document.getElementById("rarityBadge"),
     prizeName: document.getElementById("prizeName"),
     prizePartner: document.getElementById("prizePartner"),
-    prizeCode: document.getElementById("prizeCode"),
     couponDialog: document.getElementById("couponDialog"),
     couponDetail: document.getElementById("couponDetail"),
     confettiLayer: document.getElementById("confettiLayer"),
@@ -108,7 +107,6 @@
     elements.rarityBadge.dataset.rarity = coupon.rarity;
     elements.prizeName.textContent = coupon.name;
     elements.prizePartner.textContent = coupon.partner;
-    elements.prizeCode.textContent = coupon.code;
     elements.drawNote.textContent = options.alreadyOpened
       ? "直近の特典を表示しています。"
       : "この画面をブーススタッフへ。";
@@ -130,9 +128,7 @@
       <p class="eyebrow">${core.escapeHtml(getCategoryLabel(coupon.category))}</p>
       <h2>${core.escapeHtml(coupon.name)}</h2>
       <p>${core.escapeHtml(coupon.partner)}</p>
-      <div class="detail-code">${core.escapeHtml(coupon.code)}</div>
       <p>${core.escapeHtml(coupon.terms)}</p>
-      <p>有効期限：${core.formatDate(coupon.expiresAt)} / 獲得：${core.formatDate(coupon.issuedAt)}</p>
     `;
 
     if (typeof elements.couponDialog.showModal === "function" && !elements.couponDialog.open) {
