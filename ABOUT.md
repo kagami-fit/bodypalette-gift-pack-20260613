@@ -34,6 +34,18 @@ BODY PALETTEの展示会ブースで、来場者にQRコードや共有URLから
 
 ## 使い方
 
+公開版:
+
+```text
+抽選画面: https://kagami-fit.github.io/bodypalette-gift-pack-20260613/?type=general
+管理画面: https://kagami-fit.github.io/bodypalette-gift-pack-20260613/admin.html
+GitHub: https://github.com/kagami-fit/bodypalette-gift-pack-20260613
+```
+
+注意: 現在の管理画面設定はブラウザのローカルストレージに保存されます。同じ端末・同じブラウザの抽選画面には反映されますが、別端末や他の来場者のブラウザへ自動反映される仕組みではありません。
+
+ローカル確認:
+
 ```bash
 cd /Users/hayatokagami/⭐FW/bodypalette-coupon-pack
 python3 -m http.server 4174
