@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BODY PALETTE | 展示会クーポン管理</title>
+    <meta name="description" content="BODY PALETTE展示会チェックインパックの発行状況、使用済み管理、抽選確率を確認する管理画面。">
+    <link rel="icon" href="./assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="./assets/body-palette-logo.webp">
+    <link rel="preload" as="image" href="./assets/body-palette-fv-bg.webp">
+    <link rel="stylesheet" href="./styles.css?v=20260613-tone">
+  </head>
+  <body class="admin-app">
+    <div class="admin-shell">
+      <header class="admin-topbar">
+        <a class="brand" href="./admin.html" aria-label="BODY PALETTE 管理">
+          <img src="./assets/body-palette-logo.webp" alt="">
+          <span>BODY PALETTE 管理</span>
+        </a>
+        <div class="admin-actions">
+          <a class="admin-link" href="./?type=general">抽選画面</a>
+          <button class="danger-button" id="resetDemoButton" type="button">デモリセット</button>
+        </div>
+      </header>
+
+      <main class="admin-main">
+        <section class="admin-section" aria-labelledby="adminTitle">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Dashboard</p>
+              <h1 id="adminTitle">展示会クーポン管理</h1>
+              <p>この端末で発行された来場者向け特典と、抽選の当たり方を確認できます。</p>
+            </div>
+          </div>
+
+          <div class="metric-grid">
+            <article class="metric-card">
+              <span>Issued</span>
+              <strong id="metricIssued">0</strong>
+            </article>
+            <article class="metric-card">
+              <span>Active</span>
+              <strong id="metricActive">0</strong>
+            </article>
+            <article class="metric-card">
+              <span>Used</span>
+              <strong id="metricUsed">0</strong>
+            </article>
+            <article class="metric-card">
+              <span>Points</span>
+              <strong id="metricPoints">0</strong>
+            </article>
+          </div>
+        </section>
+
+        <section class="admin-section lottery-settings-section" aria-labelledby="lotteryTitle">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Lottery Rules</p>
+              <h2 id="lotteryTitle">抽選設定</h2>
+            </div>
+            <div class="admin-toolbar">
+              <button class="copy-button" id="saveLotterySettingsButton" type="button">
+                <i data-lucide="save" aria-hidden="true"></i>
+                保存
+              </button>
+              <button class="danger-button" id="resetLotterySettingsButton" type="button">
+                <i data-lucide="rotate-ccw" aria-hidden="true"></i>
+                初期設定
+              </button>
+            </div>
+          </div>
+
+          <p class="settings-status" id="settingsStatus" role="status">保存済み</p>
+
+          <article class="settings-panel settings-panel-wide">
+            <div class="panel-heading">
+              <h3>全体の当選確率</h3>
+              <div class="chance-actions">
+                <span class="chance-total" id="chanceTotal">合計 100%</span>
+                <button class="copy-button compact-button" id="normalizeChanceButton" type="button">
+                  <i data-lucide="wand-sparkles" aria-hidden="true"></i>
+                  100%に整える
+                </button>
+              </div>
+            </div>
+            <div class="prize-setting-list" id="prizeSettingList"></div>
+          </article>
+
+          <article class="settings-panel settings-panel-wide">
+            <div class="panel-heading">
+              <h3>特別ルール</h3>
+              <button class="copy-button compact-button" id="addAudienceRuleButton" type="button">
+                <i data-lucide="plus" aria-hidden="true"></i>
+                追加
+              </button>
+            </div>
+            <div class="audience-rule-list" id="audienceRuleList"></div>
+          </article>
+
+          <article class="settings-panel settings-panel-wide">
+            <div class="panel-heading">
+              <h3>テスト抽選プレビュー</h3>
+            </div>
+            <div class="preview-controls">
+              <label>
+                <span>来場者タイプ</span>
+                <select id="previewTypeSelect"></select>
+              </label>
+              <label>
+                <span>個別コード</span>
+                <input id="previewCodeInput" type="text" placeholder="demo-vip">
+              </label>
+              <label>
+                <span>見込み度</span>
+                <select id="previewLeadSelect">
+                  <option value="">通常</option>
+                  <option value="hot">高い</option>
+                </select>
+              </label>
+            </div>
+            <div class="draw-preview-list" id="drawPreviewList"></div>
+          </article>
+        </section>
+
+        <section class="admin-section" aria-labelledby="walletTitle">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Wallet</p>
+              <h2 id="walletTitle">発行済みクーポン</h2>
+            </div>
+            <div class="admin-toolbar" role="tablist" aria-label="クーポン状態">
+              <button class="filter-button is-active" type="button" data-wallet-filter="ALL" role="tab" aria-selected="true">ALL</button>
+              <button class="filter-button" type="button" data-wallet-filter="ACTIVE" role="tab" aria-selected="false">ACTIVE</button>
+              <button class="filter-button" type="button" data-wallet-filter="USED" role="tab" aria-selected="false">USED</button>
+            </div>
+          </div>
+          <div class="admin-wallet-list" id="walletList"></div>
+        </section>
+
+        <section class="admin-section" aria-labelledby="catalogTitle">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Prize Pool</p>
+              <h2 id="catalogTitle">抽選対象クーポン</h2>
+            </div>
+            <div class="category-filter" role="tablist" aria-label="クーポン分類">
+              <button class="filter-button is-active" type="button" data-catalog-filter="ALL" role="tab" aria-selected="true">ALL</button>
+              <button class="filter-button" type="button" data-catalog-filter="SESSION" role="tab" aria-selected="false">体験</button>
+              <button class="filter-button" type="button" data-catalog-filter="EVENT" role="tab" aria-selected="false">イベント</button>
+              <button class="filter-button" type="button" data-catalog-filter="GIFT" role="tab" aria-selected="false">プレゼント</button>
+              <button class="filter-button" type="button" data-catalog-filter="DX" role="tab" aria-selected="false">DX</button>
+            </div>
+          </div>
+          <div class="coupon-catalog" id="couponCatalog"></div>
+        </section>
+
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="./coupon-core.js?v=20260613-tone"></script>
+    <script src="./admin.js?v=20260613-tone"></script>
+  </body>
+</html>

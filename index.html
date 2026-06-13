@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BODY PALETTE | 展示会抽選パック</title>
+    <meta name="description" content="展示会ブースで来場者が開ける、BODY PALETTEのデジタルクーポンパック。">
+    <link rel="icon" href="./assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="./assets/body-palette-logo.webp">
+    <link rel="preload" as="image" href="./assets/body-palette-fv-bg.webp">
+    <link rel="stylesheet" href="./styles.css?v=20260613-tone">
+  </head>
+  <body class="customer-app">
+    <div class="brand-stream-bg" aria-hidden="true">
+      <div class="stream-row stream-row-1">
+        <span>BODY PALETTE BODY PALETTE BODY PALETTE BODY PALETTE BODY PALETTE BODY PALETTE</span>
+      </div>
+      <div class="stream-row stream-row-2">
+        <span>BODY PALETTE BODY PALETTE BODY PALETTE BODY PALETTE BODY PALETTE BODY PALETTE</span>
+      </div>
+      <div class="stream-row stream-row-3">
+        <span>BODY PALETTE BODY PALETTE BODY PALETTE BODY PALETTE BODY PALETTE BODY PALETTE</span>
+      </div>
+      <div class="stream-row stream-row-4">
+        <span>BODY PALETTE BODY PALETTE BODY PALETTE BODY PALETTE BODY PALETTE BODY PALETTE</span>
+      </div>
+    </div>
+    <main class="pack-shell" aria-label="BODY PALETTE 展示会抽選パック">
+      <header class="pack-topbar">
+        <a class="brand" href="./" aria-label="BODY PALETTE トップ">
+          <img src="./assets/body-palette-logo.webp" alt="">
+          <span>BODY PALETTE</span>
+        </a>
+        <div class="booth-status" aria-label="来場者限定 iPad抽選">
+          <i data-lucide="ticket-check" aria-hidden="true"></i>
+          <span>来場者限定</span>
+        </div>
+        <a class="staff-link" href="./admin.html">管理</a>
+      </header>
+
+      <section class="pack-stage" aria-labelledby="packTitle">
+        <div class="tag-pill">
+          <i data-lucide="ticket" aria-hidden="true"></i>
+          <span id="tagLabel">通常来場者</span>
+        </div>
+
+        <div class="pack-copy">
+          <p class="eyebrow">来場者限定</p>
+          <h1 id="packTitle">BODY PALETTE ギフトパック</h1>
+          <p id="visitMessage">画面のパックを開いてください。</p>
+        </div>
+
+        <div class="pack-arena" id="packArena" aria-live="polite">
+          <button class="coupon-pack" id="drawButton" type="button">
+            <span class="pack-holo" aria-hidden="true"></span>
+            <span class="pack-edge pack-edge-left" aria-hidden="true"></span>
+            <span class="pack-edge pack-edge-right" aria-hidden="true"></span>
+            <span class="pack-seal">来場者限定</span>
+            <span class="pack-logo">BODY<br>PALETTE</span>
+            <span class="pack-type" id="packType">MONITORING / SESSION / LOGBOOK</span>
+            <span class="pack-open-text">タップで抽選</span>
+          </button>
+
+          <article class="reveal-card" id="revealCard" hidden>
+            <span class="rarity-badge" id="rarityBadge">HIT</span>
+            <div class="reveal-image-wrap">
+              <img id="revealImage" src="./assets/mockup.webp" alt="">
+            </div>
+            <div class="reveal-body">
+              <p id="revealCategory">DX Coupon</p>
+              <h2 id="prizeName">今日のクーポン</h2>
+              <span id="prizePartner">BODY PALETTE</span>
+              <code id="prizeCode">BP-READY</code>
+            </div>
+          </article>
+
+          <div class="spark-layer" id="confettiLayer" aria-hidden="true"></div>
+        </div>
+
+        <div class="pack-actions">
+          <button class="primary-button" id="openPackButton" type="button">
+            <i data-lucide="sparkles" aria-hidden="true"></i>
+            パックを開く
+          </button>
+          <button class="ghost-button" id="showLatestButton" type="button">
+            <i data-lucide="ticket-check" aria-hidden="true"></i>
+            特典詳細
+          </button>
+        </div>
+
+        <p class="draw-note" id="drawNote">展示会デモ用。すぐもう一度引けます。</p>
+      </section>
+    </main>
+
+    <dialog class="coupon-dialog" id="couponDialog">
+      <form method="dialog" class="coupon-dialog-panel">
+        <button class="dialog-close" value="close" aria-label="閉じる">
+          <i data-lucide="x" aria-hidden="true"></i>
+        </button>
+        <div class="coupon-detail" id="couponDetail"></div>
+      </form>
+    </dialog>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="./coupon-core.js?v=20260613-tone"></script>
+    <script src="./app.js?v=20260613-tone"></script>
+  </body>
+</html>
