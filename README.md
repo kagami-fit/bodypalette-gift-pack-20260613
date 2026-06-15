@@ -1,6 +1,6 @@
-# BODY PALETTE ギフトパック
+# BODY PALETTE 展示会来場特典　抽選くじ
 
-BODY PALETTEの展示会ブースで使う、来場者限定のギフトパック抽選サイトです。
+BODY PALETTEの展示会ブースで使う、来場者限定の抽選くじサイトです。現在の当選特典はカスタムセッションのみです。
 
 - 抽選画面: `index.html`
 - 管理画面: `admin.html`

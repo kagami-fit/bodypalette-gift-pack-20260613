@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BODY PALETTE | 展示会クーポン管理</title>
-    <meta name="description" content="BODY PALETTE展示会チェックインパックの発行状況、使用済み管理、抽選確率を確認する管理画面。">
+    <title>BODY PALETTE | 展示会来場特典　抽選くじ管理</title>
+    <meta name="description" content="BODY PALETTE展示会来場特典　抽選くじの発行状況、使用済み管理、抽選設定を確認する管理画面。">
     <link rel="icon" href="./assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="./assets/body-palette-logo.webp">
     <link rel="preload" as="image" href="./assets/body-palette-fv-bg.webp">
-    <link rel="stylesheet" href="./styles.css?v=20260613-sparkle">
+    <link rel="stylesheet" href="./styles.css?v=20260615-custom-session">
   </head>
   <body class="admin-app">
     <div class="admin-shell">
@@ -32,8 +32,8 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">Dashboard</p>
-              <h1 id="adminTitle">展示会クーポン管理</h1>
-              <p>この端末で発行された来場者向け特典と、抽選の当たり方を確認できます。</p>
+              <h1 id="adminTitle">展示会来場特典　抽選くじ管理</h1>
+              <p>この端末で発行された来場者向け特典と、カスタムセッションが当たる抽選設定を確認できます。</p>
             </div>
           </div>
 
@@ -131,9 +131,9 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">Wallet</p>
-              <h2 id="walletTitle">発行済みクーポン</h2>
+              <h2 id="walletTitle">発行済み特典</h2>
             </div>
-            <div class="admin-toolbar" role="tablist" aria-label="クーポン状態">
+            <div class="admin-toolbar" role="tablist" aria-label="特典状態">
               <button class="filter-button is-active" type="button" data-wallet-filter="ALL" role="tab" aria-selected="true">ALL</button>
               <button class="filter-button" type="button" data-wallet-filter="ACTIVE" role="tab" aria-selected="false">ACTIVE</button>
               <button class="filter-button" type="button" data-wallet-filter="USED" role="tab" aria-selected="false">USED</button>
@@ -146,14 +146,11 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">Prize Pool</p>
-              <h2 id="catalogTitle">抽選対象クーポン</h2>
+              <h2 id="catalogTitle">抽選対象特典</h2>
             </div>
-            <div class="category-filter" role="tablist" aria-label="クーポン分類">
+            <div class="category-filter" role="tablist" aria-label="特典分類">
               <button class="filter-button is-active" type="button" data-catalog-filter="ALL" role="tab" aria-selected="true">ALL</button>
               <button class="filter-button" type="button" data-catalog-filter="SESSION" role="tab" aria-selected="false">体験</button>
-              <button class="filter-button" type="button" data-catalog-filter="EVENT" role="tab" aria-selected="false">イベント</button>
-              <button class="filter-button" type="button" data-catalog-filter="GIFT" role="tab" aria-selected="false">プレゼント</button>
-              <button class="filter-button" type="button" data-catalog-filter="DX" role="tab" aria-selected="false">DX</button>
             </div>
           </div>
           <div class="coupon-catalog" id="couponCatalog"></div>
@@ -163,7 +160,7 @@
     </div>
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script src="./coupon-core.js?v=20260613-sparkle"></script>
-    <script src="./admin.js?v=20260613-sparkle"></script>
+    <script src="./coupon-core.js?v=20260615-custom-session"></script>
+    <script src="./admin.js?v=20260615-custom-session"></script>
   </body>
 </html>

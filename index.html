@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BODY PALETTE | 展示会抽選パック</title>
-    <meta name="description" content="展示会ブースで来場者が開ける、BODY PALETTEのデジタルクーポンパック。">
+    <title>BODY PALETTE | 展示会来場特典　抽選くじ</title>
+    <meta name="description" content="展示会ブースで来場者が参加できる、BODY PALETTEの展示会来場特典　抽選くじ。">
     <link rel="icon" href="./assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="./assets/body-palette-logo.webp">
     <link rel="preload" as="image" href="./assets/body-palette-fv-bg.webp">
-    <link rel="stylesheet" href="./styles.css?v=20260613-sparkle">
+    <link rel="stylesheet" href="./styles.css?v=20260615-custom-session">
   </head>
   <body class="customer-app">
     <div class="brand-stream-bg" aria-hidden="true">
@@ -29,7 +29,7 @@
         <span>BODY PALETTE BODY PALETTE BODY PALETTE BODY PALETTE BODY PALETTE BODY PALETTE</span>
       </div>
     </div>
-    <main class="pack-shell" aria-label="BODY PALETTE 展示会抽選パック">
+    <main class="pack-shell" aria-label="BODY PALETTE 展示会来場特典　抽選くじ">
       <header class="pack-topbar">
         <a class="brand" href="./" aria-label="BODY PALETTE トップ">
           <img src="./assets/body-palette-logo.webp" alt="">
@@ -50,8 +50,8 @@
 
         <div class="pack-copy">
           <p class="eyebrow">来場者限定</p>
-          <h1 id="packTitle">BODY PALETTE ギフトパック</h1>
-          <p id="visitMessage">画面のパックを開いてください。</p>
+          <h1 id="packTitle">展示会来場特典　抽選くじ</h1>
+          <p id="visitMessage">画面のくじを開いてください。</p>
         </div>
 
         <div class="pack-arena" id="packArena" aria-live="polite">
@@ -63,7 +63,7 @@
             <span class="pack-edge pack-edge-right" aria-hidden="true"></span>
             <span class="pack-seal">来場者限定</span>
             <span class="pack-logo">BODY<br>PALETTE</span>
-            <span class="pack-type" id="packType">MONITORING / SESSION / LOGBOOK</span>
+            <span class="pack-type" id="packType">CUSTOM SESSION</span>
             <span class="pack-open-text">タップで抽選</span>
           </button>
 
@@ -73,8 +73,8 @@
               <img id="revealImage" src="./assets/mockup.webp" alt="">
             </div>
             <div class="reveal-body">
-              <p id="revealCategory">DX Coupon</p>
-              <h2 id="prizeName">今日のクーポン</h2>
+              <p id="revealCategory">特典</p>
+              <h2 id="prizeName">今日の特典</h2>
               <span id="prizePartner">BODY PALETTE</span>
             </div>
           </article>
@@ -85,7 +85,7 @@
         <div class="pack-actions">
           <button class="primary-button" id="openPackButton" type="button">
             <i data-lucide="sparkles" aria-hidden="true"></i>
-            パックを開く
+            くじを引く
           </button>
           <button class="ghost-button" id="showLatestButton" type="button">
             <i data-lucide="ticket-check" aria-hidden="true"></i>
@@ -107,7 +107,7 @@
     </dialog>
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script src="./coupon-core.js?v=20260613-sparkle"></script>
-    <script src="./app.js?v=20260613-sparkle"></script>
+    <script src="./coupon-core.js?v=20260615-custom-session"></script>
+    <script src="./app.js?v=20260615-custom-session"></script>
   </body>
 </html>

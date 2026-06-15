@@ -98,7 +98,7 @@
       syncStats();
       elements.openPackButton.disabled = false;
       elements.showLatestButton.disabled = false;
-      elements.openPackButton.innerHTML = '<i data-lucide="rotate-ccw" aria-hidden="true"></i>パックに戻る';
+      elements.openPackButton.innerHTML = '<i data-lucide="rotate-ccw" aria-hidden="true"></i>くじに戻る';
       if (window.lucide) {
         window.lucide.createIcons();
       }
@@ -125,7 +125,7 @@
   function showLatestCoupon() {
     const latest = core.getTodayCoupon(state, currentTag) || state.wallet[0];
     if (!latest) {
-      elements.drawNote.textContent = "まだクーポンがありません。パックを開封してください。";
+      elements.drawNote.textContent = "まだ特典がありません。くじを引いてください。";
       return;
     }
 
@@ -159,7 +159,7 @@
     elements.drawButton.disabled = false;
     elements.openPackButton.disabled = false;
     elements.showLatestButton.disabled = false;
-    elements.openPackButton.innerHTML = '<i data-lucide="sparkles" aria-hidden="true"></i>パックを開く';
+    elements.openPackButton.innerHTML = '<i data-lucide="sparkles" aria-hidden="true"></i>くじを引く';
     elements.drawNote.textContent = "続けて抽選できます。";
 
     if (window.lucide) {
@@ -199,9 +199,6 @@
 
   function getCategoryLabel(category) {
     if (category === "SESSION") return "体験特典";
-    if (category === "EVENT") return "イベント特典";
-    if (category === "GIFT") return "プレゼント特典";
-    if (category === "DX") return "DX特典";
     return "特典";
   }
 })();

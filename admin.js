@@ -110,7 +110,7 @@
     });
 
     elements.resetDemoButton.addEventListener("click", () => {
-      const ok = window.confirm("この端末のクーポン履歴をリセットしますか？");
+      const ok = window.confirm("この端末の特典履歴をリセットしますか？");
       if (!ok) return;
       state = core.resetState();
       render();
@@ -282,7 +282,7 @@
     });
 
     if (!visible.length) {
-      elements.walletList.innerHTML = '<p class="empty-wallet">表示するクーポンはまだありません。</p>';
+      elements.walletList.innerHTML = '<p class="empty-wallet">表示する特典はまだありません。</p>';
       return;
     }
 
@@ -465,7 +465,7 @@
       field: "code",
       value: "demo-vip",
       mode: "force",
-      couponId: "lite-health-monitoring-present",
+      couponId: "custom-session",
       boost: 60,
     };
   }
@@ -539,9 +539,6 @@
 
   function getCategoryLabel(category) {
     if (category === "SESSION") return "体験";
-    if (category === "EVENT") return "イベント";
-    if (category === "GIFT") return "プレゼント";
-    if (category === "DX") return "DX";
     return category;
   }
 

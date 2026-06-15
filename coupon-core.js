@@ -1,100 +1,48 @@
 (function () {
-  const STORAGE_KEY = "body-palette-checkin-pack-state-v2";
-  const SETTINGS_STORAGE_KEY = "body-palette-lottery-settings-v3";
+  const STORAGE_KEY = "body-palette-checkin-pack-state-v3";
+  const SETTINGS_STORAGE_KEY = "body-palette-lottery-settings-v4";
   const RULE_FIELDS = ["code", "type", "lead"];
 
   const tagProfiles = {
     general: {
       label: "通常",
-      message: "来場者限定のBODY PALETTE ギフトパックです。画面のパックを開いてください。",
-      packType: "GIFT PACK",
+      message: "来場者限定の展示会来場特典　抽選くじです。画面のくじを開いてください。",
+      packType: "CUSTOM SESSION",
     },
     interested: {
       label: "相談希望",
-      message: "ご相談ありがとうございます。導入検討に使える特典が入っています。",
-      packType: "CONSULT PACK",
+      message: "ご相談ありがとうございます。カスタムセッションが当たる抽選くじです。",
+      packType: "CUSTOM SESSION",
     },
     demo: {
       label: "デモ後",
-      message: "デモをご覧いただきありがとうございます。次の検討に使える特典が入っています。",
-      packType: "DEMO PACK",
+      message: "デモをご覧いただきありがとうございます。カスタムセッションが当たる抽選くじです。",
+      packType: "CUSTOM SESSION",
     },
     seminar: {
       label: "セミナー参加",
-      message: "セミナー参加ありがとうございます。健康経営の整理に使える特典が入っています。",
-      packType: "SEMINAR PACK",
+      message: "セミナー参加ありがとうございます。カスタムセッションが当たる抽選くじです。",
+      packType: "CUSTOM SESSION",
     },
     vip: {
       label: "VIP",
-      message: "特別なご案内用のパックです。画面のパックを開いてください。",
-      packType: "VIP PACK",
+      message: "特別なご案内用の抽選くじです。カスタムセッションが当たります。",
+      packType: "CUSTOM SESSION",
     },
   };
 
   const coupons = [
     {
-      id: "onsite-session-present",
+      id: "custom-session",
       category: "SESSION",
-      rarity: "rare",
-      weight: 15,
-      points: 150,
-      name: "オンサイトセッションプレゼント",
+      rarity: "standard",
+      weight: 100,
+      points: 100,
+      name: "カスタムセッション",
       partner: "BODY PALETTE",
-      summary: "職場やイベント会場で受けられる対面セッションをプレゼント。",
-      terms: "ブーススタッフに提示。日程調整後に実施。30日間有効。",
+      summary: "来場者に合わせて内容を組み立てるBODY PALETTEのカスタムセッション。",
+      terms: "ブーススタッフに提示。内容と日程を確認後にご案内します。",
       image: "./assets/onsite.webp",
-      expiresInDays: 30,
-    },
-    {
-      id: "princess-carry",
-      category: "EVENT",
-      rarity: "super-rare",
-      weight: 10,
-      points: 200,
-      name: "お姫様抱っこ",
-      partner: "BODY PALETTE",
-      summary: "展示会ブース限定の記念体験。スタッフ確認後に実施します。",
-      terms: "安全に実施できる場合のみ。当日限り有効。",
-      image: "./assets/session.webp",
-      expiresInDays: 1,
-    },
-    {
-      id: "protein-present",
-      category: "GIFT",
-      rarity: "standard",
-      weight: 30,
-      points: 60,
-      name: "プロテインプレゼント",
-      partner: "BODY PALETTE",
-      summary: "来場特典としてプロテインをプレゼントします。",
-      terms: "ブーススタッフに提示。在庫がなくなり次第終了。当日限り有効。",
-      image: "./assets/all-in-one.webp",
-      expiresInDays: 1,
-    },
-    {
-      id: "online-session-ticket-present",
-      category: "SESSION",
-      rarity: "standard",
-      weight: 25,
-      points: 90,
-      name: "オンラインセッション体験チケットプレゼント",
-      partner: "BODY PALETTE",
-      summary: "オンラインで参加できる運動セッションの体験チケットをプレゼント。",
-      terms: "1名1回まで。日程調整後に実施。30日間有効。",
-      image: "./assets/service-online.webp",
-      expiresInDays: 30,
-    },
-    {
-      id: "lite-health-monitoring-present",
-      category: "DX",
-      rarity: "rare",
-      weight: 20,
-      points: 160,
-      name: "簡易版健康動態モニタリング プレゼント",
-      partner: "BODY PALETTE",
-      summary: "従業員の健康状態を見える化する簡易版モニタリングをプレゼント。",
-      terms: "法人担当者様向け。事前説明後に提供。30日間有効。",
-      image: "./assets/mockup.webp",
       expiresInDays: 30,
     },
   ];
@@ -111,68 +59,27 @@
       }, {}),
       tagRules: {
         general: {
-          categoryBoosts: { SESSION: 0, EVENT: 0, GIFT: 0, DX: 0 },
+          categoryBoosts: { SESSION: 0 },
           couponBoosts: {},
         },
         interested: {
-          categoryBoosts: { SESSION: 0, EVENT: 0, GIFT: 0, DX: 0 },
+          categoryBoosts: { SESSION: 0 },
           couponBoosts: {},
         },
         demo: {
-          categoryBoosts: { SESSION: 0, EVENT: 0, GIFT: 0, DX: 0 },
+          categoryBoosts: { SESSION: 0 },
           couponBoosts: {},
         },
         seminar: {
-          categoryBoosts: { SESSION: 0, EVENT: 0, GIFT: 0, DX: 0 },
+          categoryBoosts: { SESSION: 0 },
           couponBoosts: {},
         },
         vip: {
-          categoryBoosts: { SESSION: 0, EVENT: 0, GIFT: 0, DX: 0 },
+          categoryBoosts: { SESSION: 0 },
           couponBoosts: {},
         },
       },
-      audienceRules: [
-        {
-          id: "type-vip-onsite",
-          name: "VIPはオンサイトセッションを当たりやすく",
-          enabled: true,
-          field: "type",
-          value: "vip",
-          mode: "boost",
-          couponId: "onsite-session-present",
-          boost: 80,
-        },
-        {
-          id: "lead-hot-monitoring",
-          name: "見込み高は簡易モニタリングを当たりやすく",
-          enabled: true,
-          field: "lead",
-          value: "hot",
-          mode: "boost",
-          couponId: "lite-health-monitoring-present",
-          boost: 60,
-        },
-        {
-          id: "code-demo-vip-force",
-          name: "demo-vipは簡易モニタリングを確定",
-          enabled: true,
-          field: "code",
-          value: "demo-vip",
-          mode: "force",
-          couponId: "lite-health-monitoring-present",
-          boost: 0,
-        },
-        {
-          id: "code-consult-force",
-          name: "consultはオンサイトセッションを確定",
-          enabled: true,
-          field: "code",
-          value: "consult",
-          mode: "force",
-          couponId: "onsite-session-present",
-          boost: 0,
-        },
-      ],
+      audienceRules: [],
       updatedAt: "",
     };
   }
@@ -185,8 +92,8 @@
   function getTagProfile(tag) {
     return tagProfiles[tag] || {
       label: tag,
-      message: "来場者限定のBODY PALETTE ギフトパックです。画面のパックを開いてください。",
-      packType: "GIFT PACK",
+      message: "来場者限定の展示会来場特典　抽選くじです。画面のくじを開いてください。",
+      packType: "CUSTOM SESSION",
     };
   }
 
