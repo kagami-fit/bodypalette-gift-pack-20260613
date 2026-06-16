@@ -42,7 +42,7 @@
       partner: "BODY PALETTE",
       summary: "来場者に合わせて内容を組み立てるBODY PALETTEのカスタムセッション。",
       terms: "ブーススタッフに提示。内容と日程を確認後にご案内します。",
-      image: "./assets/onsite.webp",
+      image: "./assets/custom-session-grid.png",
       expiresInDays: 30,
     },
   ];
