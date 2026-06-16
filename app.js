@@ -17,6 +17,7 @@
     packArena: document.getElementById("packArena"),
     packType: document.getElementById("packType"),
     revealCard: document.getElementById("revealCard"),
+    revealImageWrap: document.querySelector(".reveal-image-wrap"),
     revealImage: document.getElementById("revealImage"),
     revealCategory: document.getElementById("revealCategory"),
     rarityBadge: document.getElementById("rarityBadge"),
@@ -110,6 +111,7 @@
     elements.packArena.classList.remove("is-opening");
     elements.packArena.classList.add("has-reveal");
     elements.revealCard.hidden = false;
+    elements.revealImageWrap.style.setProperty("--reveal-image-ratio", String(coupon.imageAspectRatio || 1.28));
     elements.revealImage.src = coupon.image;
     elements.revealImage.alt = `${coupon.partner}の特典イメージ`;
     elements.revealCategory.textContent = getCategoryLabel(coupon.category);

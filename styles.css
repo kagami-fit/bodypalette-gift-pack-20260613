@@ -801,7 +801,9 @@ a {
 }
 
 .reveal-image-wrap {
-  aspect-ratio: 1.28;
+  display: grid;
+  place-items: center;
+  aspect-ratio: var(--reveal-image-ratio, 1.28);
   background: var(--paper);
   overflow: hidden;
 }
@@ -809,7 +811,7 @@ a {
 .reveal-image-wrap img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .reveal-body {
