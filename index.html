@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="./assets/body-palette-logo.webp">
     <link rel="preload" as="image" href="./assets/body-palette-fv-bg.webp">
-    <link rel="stylesheet" href="./styles.css?v=20260616-ipad-tap">
+    <link rel="stylesheet" href="./styles.css?v=20260616-brand-refresh">
   </head>
   <body class="customer-app">
     <div class="brand-stream-bg" aria-hidden="true">
@@ -59,11 +59,16 @@
             <span class="pack-holo" aria-hidden="true"></span>
             <span class="pack-orbit" aria-hidden="true"></span>
             <span class="pack-sparkle-field" aria-hidden="true"></span>
+            <span class="pack-brand-halo" aria-hidden="true"></span>
             <span class="pack-edge pack-edge-left" aria-hidden="true"></span>
             <span class="pack-edge pack-edge-right" aria-hidden="true"></span>
             <span class="pack-seal">来場者限定</span>
-            <span class="pack-logo">BODY<br>PALETTE</span>
-            <span class="pack-type" id="packType">CUSTOM SESSION</span>
+            <span class="pack-logo">
+              <span class="pack-logo-badge">SPECIAL DRAW</span>
+              <img class="pack-logo-image" src="./assets/body-palette-logo.webp" alt="">
+              <span class="pack-logo-copy">その場で当たる来場特典</span>
+            </span>
+            <span class="pack-type" id="packType" aria-hidden="true">CUSTOM SESSION</span>
             <span class="pack-open-text">タップで抽選</span>
           </button>
 
@@ -93,7 +98,7 @@
           </button>
         </div>
 
-        <p class="draw-note" id="drawNote">展示会デモ用。すぐもう一度引けます。</p>
+        <p class="draw-note" id="drawNote"></p>
       </section>
     </main>
 
@@ -107,7 +112,7 @@
     </dialog>
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script src="./coupon-core.js?v=20260616-ipad-tap"></script>
-    <script src="./app.js?v=20260616-ipad-tap"></script>
+    <script src="./coupon-core.js?v=20260616-brand-refresh"></script>
+    <script src="./app.js?v=20260616-brand-refresh"></script>
   </body>
 </html>

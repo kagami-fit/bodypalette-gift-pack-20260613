@@ -160,7 +160,7 @@
     elements.openPackButton.disabled = false;
     elements.showLatestButton.disabled = false;
     elements.openPackButton.innerHTML = '<i data-lucide="sparkles" aria-hidden="true"></i>もう一度引く';
-    elements.drawNote.textContent = "続けて抽選できます。";
+    elements.drawNote.textContent = "";
 
     if (window.lucide) {
       window.lucide.createIcons();
