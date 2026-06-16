@@ -6,27 +6,27 @@
   const tagProfiles = {
     general: {
       label: "通常",
-      message: "来場者限定の展示会来場特典　抽選くじです。画面のくじを開いてください。",
+      message: "画面のくじをタップして抽選してください。",
       packType: "CUSTOM SESSION",
     },
     interested: {
       label: "相談希望",
-      message: "ご相談ありがとうございます。カスタムセッションが当たる抽選くじです。",
+      message: "ご相談ありがとうございます。くじをタップして抽選してください。",
       packType: "CUSTOM SESSION",
     },
     demo: {
       label: "デモ後",
-      message: "デモをご覧いただきありがとうございます。カスタムセッションが当たる抽選くじです。",
+      message: "デモをご覧いただきありがとうございます。くじをタップして抽選してください。",
       packType: "CUSTOM SESSION",
     },
     seminar: {
       label: "セミナー参加",
-      message: "セミナー参加ありがとうございます。カスタムセッションが当たる抽選くじです。",
+      message: "セミナー参加ありがとうございます。くじをタップして抽選してください。",
       packType: "CUSTOM SESSION",
     },
     vip: {
       label: "VIP",
-      message: "特別なご案内用の抽選くじです。カスタムセッションが当たります。",
+      message: "特別なご案内用です。くじをタップして抽選してください。",
       packType: "CUSTOM SESSION",
     },
   };
@@ -92,7 +92,7 @@
   function getTagProfile(tag) {
     return tagProfiles[tag] || {
       label: tag,
-      message: "来場者限定の展示会来場特典　抽選くじです。画面のくじを開いてください。",
+      message: "画面のくじをタップして抽選してください。",
       packType: "CUSTOM SESSION",
     };
   }

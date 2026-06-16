@@ -79,7 +79,7 @@
     elements.openPackButton.disabled = true;
     elements.showLatestButton.disabled = true;
     elements.packArena.classList.add("is-opening");
-    elements.drawNote.textContent = "パックを開封中...";
+    elements.drawNote.textContent = "抽選中...";
 
     window.clearTimeout(openTimer);
     openTimer = window.setTimeout(() => {
@@ -98,7 +98,7 @@
       syncStats();
       elements.openPackButton.disabled = false;
       elements.showLatestButton.disabled = false;
-      elements.openPackButton.innerHTML = '<i data-lucide="rotate-ccw" aria-hidden="true"></i>くじに戻る';
+      elements.openPackButton.innerHTML = '<i data-lucide="rotate-ccw" aria-hidden="true"></i>もう一度引く';
       if (window.lucide) {
         window.lucide.createIcons();
       }
@@ -159,7 +159,7 @@
     elements.drawButton.disabled = false;
     elements.openPackButton.disabled = false;
     elements.showLatestButton.disabled = false;
-    elements.openPackButton.innerHTML = '<i data-lucide="sparkles" aria-hidden="true"></i>くじを引く';
+    elements.openPackButton.innerHTML = '<i data-lucide="sparkles" aria-hidden="true"></i>もう一度引く';
     elements.drawNote.textContent = "続けて抽選できます。";
 
     if (window.lucide) {
